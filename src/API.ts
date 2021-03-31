@@ -9,6 +9,8 @@ export type Question = {
   type: string;
 };
 
+export type QuestionsState = Question & { answers: string[] };
+
 export enum Difficulty {
   EASY = "easy",
   MEDIUM = "medium",
@@ -23,4 +25,4 @@ export const fetchQuizQuestions = async (amount: number, difficulty: Difficulty)
     ...question,
     answers: shuffleArray([...question.incorrect_answers, question.correct_answer])
   }))
-}
+};
